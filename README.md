@@ -1,11 +1,9 @@
-# Loverjielver
-#For my lover
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我们的七夕节 | 爱的纪念</title>
+    <title>七夕专属 | 杰律的爱的告白</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -196,35 +194,6 @@
             transform: translateY(0);
         }
         
-        /* 额外选项 */
-        .extra-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #b18bc9;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-        }
-        
-        .remember-me input {
-            margin-right: 8px;
-        }
-        
-        .forgot-password {
-            color: #ff5e9d;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .forgot-password:hover {
-            color: #fff;
-        }
-        
         /* 错误消息 */
         .error-message {
             color: #ff5e9d;
@@ -233,8 +202,93 @@
             display: none;
         }
         
+        /* 网站内容 - 默认隐藏 */
+        .website-content {
+            display: none;
+            width: 100%;
+        }
+        
+        /* 内容区域样式 */
+        .content-section {
+            background: rgba(89, 10, 110, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content-section h2 {
+            color: #ff5e9d;
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .photo-placeholder {
+            height: 180px;
+            background: linear-gradient(45deg, #3a0457, #5c088f);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d8b6e6;
+            font-size: 14px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+        
+        .countdown {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+            color: #ff5e9d;
+            font-weight: bold;
+        }
+        
+        .memory {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .memory-date {
+            min-width: 80px;
+            text-align: center;
+            color: #ff5e9d;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .memory-content {
+            flex: 1;
+        }
+        
         /* 响应式设计 */
-        @media (max-width: 500px) {
+        @media (max-width: 768px) {
             .login-container {
                 padding: 30px 20px;
             }
@@ -243,17 +297,9 @@
                 font-size: 24px;
             }
             
-            .extra-options {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
+            .photo-gallery {
+                grid-template-columns: 1fr 1fr;
             }
-        }
-        
-        /* 网站内容 - 默认隐藏 */
-        .website-content {
-            display: none;
-            width: 100%;
         }
     </style>
 </head>
@@ -270,40 +316,93 @@
             <div class="logo">
                 <i class="fas fa-heart"></i> 七夕之恋
             </div>
-            <h1>专属访问</h1>
-            <p class="subtitle">请输入密码查看专属内容</p>
+            <h1>爱的专属空间</h1>
+            <p class="subtitle">请输入用户名和密码访问专属内容</p>
             
             <form id="loginForm">
                 <div class="input-group">
-                    <label for="username">你的名字</label>
-                    <input type="text" id="username" class="input-field" placeholder="请输入你的名字" required>
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" class="input-field" placeholder="请输入您的用户名" required>
                 </div>
                 
                 <div class="input-group">
-                    <label for="password">访问密码</label>
+                    <label for="password">密码</label>
                     <input type="password" id="password" class="input-field" placeholder="请输入密码" required>
                 </div>
                 
-                <button type="submit" class="login-btn">进入我们的世界</button>
+                <button type="submit" class="login-btn">进入爱的世界</button>
                 
                 <div class="error-message" id="errorMessage">
-                    <i class="fas fa-exclamation-circle"></i> 密码不正确，请再试一次
+                    <i class="fas fa-exclamation-circle"></i> 用户名或密码不正确
                 </div>
             </form>
             
-            <div class="extra-options">
-                <div class="remember-me">
-                    <input type="checkbox" id="rememberMe">
-                    <label for="rememberMe">记住我</label>
-                </div>
-                <a href="#" class="forgot-password">忘记密码？</a>
+            <div style="margin-top: 20px; color: #b18bc9; font-size: 14px;">
+                <p>提示: 用户名是"杰律"，密码是"iloveyou"</p>
             </div>
         </div>
     </div>
     
     <!-- 网站内容 -->
     <div class="website-content" id="websiteContent">
-        <!-- 这里放置您之前创建的网站内容 -->
+        <div class="content-section">
+            <h2><i class="fas fa-heart"></i> 七夕快乐，我的爱人</h2>
+            <div class="message">
+                <p>亲爱的，在这个浪漫的七夕节，我想对你说：</p>
+                <p>遇见你是我一生中最美好的意外，爱上你是我最幸福的决定。每一天和你在一起，都是我生命中最珍贵的时光。</p>
+                <p>愿我们的爱情如同天上的牛郎织女，即使有银河相隔，也阻挡不了我们相爱的心。</p>
+                <p>永远爱你的杰律</p>
+            </div>
+            
+            <div class="countdown" id="countdown">
+                我们已经相爱: 计算中...
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2><i class="fas fa-images"></i> 我们的甜蜜回忆</h2>
+            <div class="photo-gallery">
+                <div class="photo-placeholder">点击上传我们的第一张合影</div>
+                <div class="photo-placeholder">点击上传第一次约会照片</div>
+                <div class="photo-placeholder">点击上传旅行照片</div>
+                <div class="photo-placeholder">点击上传日常生活照</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2><i class="fas fa-history"></i> 我们的爱情历程</h2>
+            
+            <div class="memory">
+                <div class="memory-date">2022-02-14</div>
+                <div class="memory-content">我们第一次相遇，那天天空飘着细雨，你的笑容却像阳光一样照亮了我的世界</div>
+            </div>
+            
+            <div class="memory">
+                <div class="memory-date">2022-05-20</div>
+                <div class="memory-content">你接受了我的告白，我们正式在一起了。这是我人生中最幸福的一天</div>
+            </div>
+            
+            <div class="memory">
+                <div class="memory-date">2023-01-22</div>
+                <div class="memory-content">我们一起度过了第一个春节，虽然不能回家，但有你在身边就是家</div>
+            </div>
+            
+            <div class="memory">
+                <div class="memory-date">2023-06-01</div>
+                <div class="memory-content">我们一起去了游乐园，你笑得像个孩子，那一刻我知道我找到了想要守护一生的人</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2><i class="fas fa-gift"></i> 七夕礼物</h2>
+            <div class="message">
+                <p>今年七夕，我为你准备了特别的礼物：</p>
+                <p>1. 你最喜欢的香水</p>
+                <p>2. 手工制作的相册，记录我们的点点滴滴</p>
+                <p>3. 一顿我亲手做的烛光晚餐</p>
+                <p>4. 最重要的：我全部的爱和承诺</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -353,19 +452,20 @@
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
             
-            // 简单验证 - 在实际应用中，这应该与后端验证
-            if (password === 'iloveyou' || password === '5201314' || password === 'qixi2023') {
+            // 验证用户名和密码
+            if (username === '杰律' && password === 'iloveyou') {
                 // 登录成功
                 errorMessage.style.display = 'none';
                 
                 // 显示成功消息
-                alert('登录成功！欢迎进入我们的世界，' + username + '！❤');
+                alert('登录成功！七夕快乐，我的爱人！❤');
                 
                 // 隐藏登录表单，显示网站内容
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('websiteContent').style.display = 'block';
                 
-                // 在实际应用中，这里可以重定向到主页面或显示隐藏的内容
+                // 开始倒计时
+                updateCountdown();
             } else {
                 // 登录失败
                 errorMessage.style.display = 'block';
@@ -381,22 +481,30 @@
             }
         });
         
-        // 忘记密码链接
-        document.querySelector('.forgot-password').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('提示：试试这些密码之一：iloveyou, 5201314, qixi2023\n\n当然，在实际应用中，这会通过邮件重置。');
+        // 更新相爱时间倒计时
+        function updateCountdown() {
+            // 假设他们从2022年5月20日开始在一起
+            const startDate = new Date('2022-05-20');
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            document.getElementById('countdown').textContent = 
+                `我们已经相爱: ${diffDays} 天 ${diffHours} 小时`;
+        }
+        
+        // 为照片占位符添加点击事件
+        document.querySelectorAll('.photo-placeholder').forEach(photo => {
+            photo.addEventListener('click', function() {
+                alert('在实际应用中，这里可以实现照片上传功能。');
+            });
         });
         
         // 初始化
         window.onload = function() {
             createStars();
             createHearts();
-            
-            // 检查是否已登录（本地存储示例）
-            if (localStorage.getItem('isLoggedIn') === 'true') {
-                document.getElementById('loginContainer').style.display = 'none';
-                document.getElementById('websiteContent').style.display = 'block';
-            }
         };
     </script>
 </body>
